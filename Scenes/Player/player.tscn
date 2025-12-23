@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dc27s26g88qyk"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="CameraOffset" type="Node2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="CameraOffset"]

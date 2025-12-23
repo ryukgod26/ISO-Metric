@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c81by6e5jeqok"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltysa"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ltysa")

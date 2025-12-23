@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bakc26y52wmyc"]
+
+[ext_resource type="Texture2D" uid="uid://cprtvqv28hpc5" path="res://assets/player/Props/1024x1024/Sword_out_scabbard_noShadow/Sword_out_scabbard_noShadow_022.png" id="2_pngpa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk5vv"]
+atlas = ExtResource("2_pngpa")
+region = Rect2(0, 0, 1024, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tsoym"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dk5vv")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="Sword" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(86, -142)
+sprite_frames = SubResource("SpriteFrames_tsoym")
+frame_progress = 0.045665
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
