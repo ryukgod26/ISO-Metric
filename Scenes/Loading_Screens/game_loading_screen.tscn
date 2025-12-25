@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://habkamrjeb1x"]
+
+[ext_resource type="Script" uid="uid://bcot7cvkln4cn" path="res://Scripts/Loading_Screens/game_loading_screen.gd" id="1_dnini"]
+
+[node name="GameLoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_dnini")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressText" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.38900003
+anchor_top = 0.625
+anchor_right = 0.61700004
+anchor_bottom = 0.72200006
+offset_left = -0.12802124
+offset_right = 0.21594238
+offset_bottom = 5.1439514
+text = "0%"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = -1
+anchor_left = -0.002
+anchor_top = 0.77800006
+anchor_right = 1.0
+anchor_bottom = 0.81900007
+offset_left = 0.30400014
+offset_top = -0.14404297
+offset_right = -2.0
+offset_bottom = 0.28796387
+grow_horizontal = 2
+grow_vertical = 2
