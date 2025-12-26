@@ -8,7 +8,7 @@ var screen_load_status = 0
 @onready var progress_text: Label = $ProgressText
 @onready var progress_bar: ProgressBar = $ProgressBar
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	screen_load_status = ResourceLoader.load_threaded_get_status(level,progress)
 	progress_bar.value = floor(progress[0] * 100)
 	progress_text.text = str(floor(progress[0] * 100)) + "%"
