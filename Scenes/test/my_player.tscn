@@ -21,3 +21,5 @@ texture = ExtResource("1_ce7sm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="RayCast" type="RayCast2D" parent="."]

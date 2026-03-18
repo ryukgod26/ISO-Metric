@@ -36,6 +36,8 @@ fill_to = Vector2(0.046728972, 0.06542056)
 [sub_resource type="Environment" id="Environment_qwbg2"]
 background_mode = 3
 glow_enabled = true
+glow_blend_mode = 1
+glow_hdr_threshold = 1.2
 
 [node name="Game" type="Node2D"]
 
