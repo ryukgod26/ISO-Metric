@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpxgqo4bsamrk"]
+
+[ext_resource type="Texture2D" uid="uid://deqhxjwelknpm" path="res://assets/art/white_circle.png" id="1_daubx"]
+
+[node name="hiddenWorldContainer" type="Node2D"]
+clip_children = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_daubx")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 61.0
+offset_bottom = 3.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hidden Object"
