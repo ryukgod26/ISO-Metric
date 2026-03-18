@@ -29,3 +29,11 @@ func snap_photo():
 			hit_obj.queue_free()
 		else:
 			print("Just a Normal Photo")
+
+func save_image_to_disk() -> void:
+	var img = get_viewport().get_texture().get_image()
+	var time_string = Time.get_datetime_string_from_system().replace(":","-")
+	var file_path = "user://iso_capture_" + time_string + ".png"
+	
+	img.save_png(file_path)
+	print("Photo Saved Successfully")
