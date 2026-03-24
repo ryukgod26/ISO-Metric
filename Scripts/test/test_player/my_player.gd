@@ -2,6 +2,11 @@ extends CharacterBody2D
 
 const SPEED = 16
 @onready var ray_cast: RayCast2D = $RayCast
+@onready var lens_mask: Sprite2D = $hiddenWorldContainer/LensMask
+@onready var hidden_world_anchor: Node2D = $hiddenWorldContainer/LensMask/HiddenWorldAnchor
+
+func _ready() -> void:
+	lens_mask.visible = false
 
 func _physics_process(_delta: float) -> void:
 	var dir = Input.get_vector("move_left","move_right","move_up","move_down")
@@ -15,8 +20,19 @@ func _physics_process(_delta: float) -> void:
 func _process(_delta: float) -> void:
 	ray_cast.target_position = get_local_mouse_position()
 	
+	if Input.is_action_just_pressed("aim_camera"):
+		lens_mask.visible = true
+		update_lens_position()
+	else:
+		lens_mask.visible = false
+	
 	if Input.is_action_just_pressed("ui_accept"):
 		snap_photo()
+
+func update_lens_position():
+	var target_pos = get_global_mouse_position()
+	lens_mask.global_position = target_pos
+	hidden_world_anchor.global_position = Vector2.ZERO
 
 func snap_photo():
 	ray_cast.force_raycast_update()
