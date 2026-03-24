@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://wb4ojahk3vug"]
+[gd_scene load_steps=11 format=4 uid="uid://wb4ojahk3vug"]
 
 [ext_resource type="Texture2D" uid="uid://dfivmeshllccg" path="res://assets/Self_created/pngs/grass.png" id="1_dhce4"]
 [ext_resource type="PackedScene" uid="uid://c01qk75vpso4o" path="res://Scenes/test/my_player.tscn" id="2_bkk7d"]
 [ext_resource type="Script" uid="uid://b1842ksoneeqa" path="res://Scripts/world_building/test/tile_map_layer.gd" id="2_qwbg2"]
+[ext_resource type="Texture2D" uid="uid://4qel6cvmf3yw" path="res://assets/art/ViewFInder.png" id="4_mrt3l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bkk7d"]
 texture = ExtResource("1_dhce4")
@@ -39,6 +40,9 @@ glow_enabled = true
 glow_blend_mode = 1
 glow_hdr_threshold = 1.2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrt3l"]
+bg_color = Color(0.4870417, 0.66581297, 0.2735377, 1)
+
 [node name="Game" type="Node2D"]
 
 [node name="Tilemaplayers" type="Node2D" parent="."]
@@ -63,3 +67,43 @@ color = Color(0.019607844, 0.019607844, 0.08235294, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qwbg2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ViewFinder" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mrt3l")
+
+[node name="Battery" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+offset_right = 4.0
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_mrt3l")
+show_percentage = false
+
+[node name="DataCredits" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "DATA: 0TB"
+
+[node name="RecDot" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0, 0, 1)
