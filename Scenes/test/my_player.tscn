@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c01qk75vpso4o"]
+[gd_scene load_steps=8 format=3 uid="uid://c01qk75vpso4o"]
 
 [ext_resource type="Texture2D" uid="uid://cp2xvbs0cam26" path="res://assets/Self_created/pngs/test_player.png" id="1_ce7sm"]
 [ext_resource type="Script" uid="uid://8rwosk045uyd" path="res://Scripts/test/test_player/my_player.gd" id="1_ckqur"]
 [ext_resource type="PackedScene" uid="uid://dpxgqo4bsamrk" path="res://Scenes/Lens/hidden_world_container.tscn" id="3_r7vwx"]
+[ext_resource type="Texture2D" uid="uid://4qel6cvmf3yw" path="res://assets/art/ViewFInder.png" id="4_doa1e"]
+[ext_resource type="FontFile" uid="uid://dod78jqye2ogb" path="res://assets/fonts/Courier_Prime/CourierPrime-Regular.ttf" id="5_3xugn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ckqur"]
 radius = 4.0
 height = 12.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4ejw"]
+bg_color = Color(0.4862745, 0.6666667, 0.8, 1)
 
 [node name="my_player" type="CharacterBody2D"]
 motion_mode = 1
@@ -26,5 +31,47 @@ zoom = Vector2(4, 4)
 [node name="RayCast" type="RayCast2D" parent="."]
 
 [node name="hiddenWorldContainer" parent="." instance=ExtResource("3_r7vwx")]
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="CameraUI" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ViewFinder" type="TextureRect" parent="HUD/CameraUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_doa1e")
+
+[node name="Battery" type="ProgressBar" parent="HUD/CameraUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -4.0
+offset_right = 15.0
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_b4ejw")
+value = 50.0
+show_percentage = false
+
+[node name="DataCredits" type="Label" parent="HUD/CameraUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("5_3xugn")
+text = "DATA: 0TB"
+
+[node name="RecDot" type="ColorRect" parent="HUD/CameraUI"]
+layout_mode = 1
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(1, 0, 0, 1)
 
 [editable path="hiddenWorldContainer"]
