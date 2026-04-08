@@ -6,7 +6,7 @@ const SPEED = 16
 @onready var hidden_world_anchor: Node2D = $hiddenWorldContainer/LensMask/HiddenWorldAnchor
 
 @onready var hud = $HUD/CameraUI
-@onready var battery_bar = $HUD/CameraUI/BatteryBar
+@onready var battery_bar = $HUD/CameraUI/Battery
 @onready var credits_label = $HUD/CameraUI/DataCredits
 @onready var rec_dot = $HUD/CameraUI/RecDot
 
@@ -93,5 +93,5 @@ func blink_rec_dot():
 		rec_dot.visible = false
 
 func drain_battery(amount_to_drain):
-	current_battery -= amount_to_drain * 5.0 
+	current_battery -= amount_to_drain * 5.0
 	battery_bar.value = current_battery

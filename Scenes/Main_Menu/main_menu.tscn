@@ -1,6 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6o1wsgqoxkic"]
+[gd_scene load_steps=7 format=3 uid="uid://b6o1wsgqoxkic"]
 
 [ext_resource type="Script" uid="uid://bcw45tcm74k4s" path="res://Scripts/UI/main_menu.gd" id="1_g70ar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g70ar"]
+bg_color = Color(0.7647059, 0.5647059, 0.9647059, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev4p5"]
+bg_color = Color(0.53752816, 0.2076897, 0.7865279, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fry56"]
+bg_color = Color(0.82345265, 0.6827385, 0.97532827, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(3, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13x35"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g70ar"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -11,13 +38,27 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_g70ar")
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.5176471, 1, 1, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -197.0
+offset_right = 254.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.24477637, 0.2447764, 0.24477637, 1)
+theme_override_font_sizes/font_size = 100
+text = "ISO METRIC "
 
 [node name="ButtonManager" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -36,16 +77,28 @@ theme_override_constants/separation = 30
 [node name="Play" type="Button" parent="ButtonManager"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_g70ar")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ev4p5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fry56")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_13x35")
 text = "PLAY"
 
 [node name="Options" type="Button" parent="ButtonManager"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_g70ar")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ev4p5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fry56")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g70ar")
 text = "SETTINGS"
 
 [node name="Quit" type="Button" parent="ButtonManager"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_g70ar")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ev4p5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fry56")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g70ar")
 text = "QUIT"
 
 [connection signal="pressed" from="ButtonManager/Play" to="." method="_on_play_pressed"]

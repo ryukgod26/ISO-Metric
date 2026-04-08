@@ -36,9 +36,11 @@ zoom = Vector2(4, 4)
 
 [node name="CameraUI" type="Control" parent="HUD"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ViewFinder" type="TextureRect" parent="HUD/CameraUI"]
 layout_mode = 1
@@ -70,8 +72,8 @@ text = "DATA: 0TB"
 
 [node name="RecDot" type="ColorRect" parent="HUD/CameraUI"]
 layout_mode = 1
-offset_right = 10.0
-offset_bottom = 10.0
+offset_right = 30.0
+offset_bottom = 30.0
 color = Color(1, 0, 0, 1)
 
 [editable path="hiddenWorldContainer"]

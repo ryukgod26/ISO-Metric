@@ -59,6 +59,7 @@ energy = 1.2
 texture = SubResource("GradientTexture2D_mrt3l")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.019607844, 0.019607844, 0.08235294, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
